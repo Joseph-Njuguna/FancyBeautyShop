@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    
+    <title>Fancy Beauty Shop</title>
+    <!-- Loading third party fonts -->
+    <link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fonts/novecento-font/novecento-font.css' %}" rel="stylesheet" type="text/css">
+    <!-- Loading main css file -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+    <!--[if lt IE 9]>
+    <script src="js/ie-support/html5.js"></script>
+    <script src="js/ie-support/respond.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="site-content">
+			
+        <header class="site-header">
+            <div class="container">
+                <a id="branding" href="{% url 'web:home' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Fancy Beauty Shop" class="logo">
+                    <div class="logo-copy">
+                        <h1 class="site-title">Fancy Beauty Shop</h1>
+                        <small class="site-description">Quality products at awesome prices</small>
+                    </div>
+                </a> <!-- #branding -->
+
+                
+                <!-- Default snippet for navigation -->
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="{% url 'web:home' %}">Home</a></li>
+                        <li class="menu-item"><a href="{% url 'web:about' %}">About</a></li>
+                        <li class="menu-item"><a href="{% url 'web:gallery' %}">Gallery</a></li>
+                        <li class="menu-item"><a href="{% url 'web:contact' %}">Contact</a></li>
+                    </ul> <!-- .menu -->
+                </div> <!-- .main-navigation -->
+
+                <div class="mobile-navigation"></div>
+            </div>
+        </header>
+
+
+        <div class="container">
+
+        {% block content %}
+
+        {% endblock %}
+
+        </div> 
+
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="widget contact-widget">
+                            <h3 class="widget-title">Contact</h3>
+                            <div class="contact-info">
+                                <address>
+                                    <img src="{% static 'images/icon-map-small.png' %}" class="icon">
+                                    <p><strong>Fancy Beauty Shop</strong> Moi Drive, NNairobi</p>
+                                </address>
+                                <a href="mailto:contact@companyname.com" class="mail"><img src="{% static 'images/icon-envelope-small.png'%}" class="icon">contact@companyname.com</a>
+                                <a href="tel:(500)942042259" class="phone"><img src="{% static 'images/icon-phone-small.png'%}" class="icon">(500)942042259</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <h3 class="widget-title">Social Media</h3>
+                            <p>Hit us on our social media accounts: </p>
+                            <div class="social-links">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="widget">
+                            <h3 class="widget-title">Newsletter</h3>
+                            <p>Add your email to receive our newsletter </p>
+                            <form action="#" class="subscribe-form">
+                                <input type="email" placeholder="Enter our email...">
+                                <input type="submit" value="Sign up">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <p>Copyright 2020 Fancy Beauty Shop. Designed by JNdunguEnt. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+	</div>	
+{% comment %} <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/app.js"></script> {% endcomment %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>

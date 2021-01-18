@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+	<div id="slideshow-example" data-component="slideshow">
+		<div role="list">
+			<div class="slide">
+				<img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=752&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="">
+			</div>
+			<div class="slide">
+				<img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=750&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="">
+			</div>
+			<div class="slide">
+				<img src="https://images.unsplash.com/photo-1498753427761-548428edfa67?w=889&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="">
+			</div>
+		</div>
+	</div>
+
+		
+	<main class="main-content">
+		<div class="fullwidth-block latest-news-section">
+			 <div class="container"> 
+				<h2 class="section-title">Latest Collection</h2>
+
+				<div class="container">
+					{% for l in lprod %}
+					<div class="display ">                
+						<figure class="featured-image">
+							<a href="{{l.1}}">
+								<img class="product-image" src="{{l.1}}" alt="">
+							</a>
+							<a href="contact.html">
+								<figcaption>
+									<h2 class="gallery-title">{{l.0}}</h2>
+								</figcaption>
+							</a>
+						</figure>
+
+					</div>
+					{% endfor %}
+					<br><br>
+					
+					<div class="text-center">
+						<a href="{% url 'web:gallery' %}" class="button no-gradient">More Collections</a>
+					</div>
+				</div>
+				
+				
+			 </div> <!-- .container --> 
+		</div> <!-- .fullwidth-block.latest-news-section -->
+
+
+	 {% comment %} <main class="main-content"> {% endcomment %}
+		<div class="fullwidth-block latest-news-section">
+		<h2 class="section-title">Best Seller Collections</h2>
+			<div class="container">
+					{% for l in lprod %}
+					<div class="display ">                
+						<figure class="featured-image">
+							<a href="{{l.1}}">
+								<img class="product-image" src="{{l.1}}" alt="">
+							</a>
+							<a href="contact.html">
+								<figcaption>
+									<h2 class="gallery-title">{{l.0}}</h2>
+								</figcaption>
+							</a>
+						</figure>
+
+					</div>
+					{% endfor %}
+					<br><br>
+					
+					<div class="text-center">
+						<a href="{% url 'web:gallery' %}" class="button no-gradient">More Collections</a>
+					</div>
+			</div>
+			{% comment %} <div class="container">
+				
+				
+
+
+				<div class="text-center">
+					<a href="gallery.html" class="button no-gradient">More Collections</a>
+				</div>
+			</div> <!-- .container -->  {% endcomment %}
+		</div> <!-- .fullwidth-block.latest-news-section -->
+
+		{% comment %} <div class="fullwidth-block information-section">
+			<div class="container">
+				<h2 class="section-title">Information</h2>
+				<div class="row" style="color: black;">
+					<div class="col-md-4">
+						<figure><img src="{% static 'fancybeautyimages/besthaircare.jpg' %}" ></figure>
+					</div>
+					<div class="col-md-4">
+						<p>Fancy beauty is an online beauty store, providing quality and trendy products to Kenyan women. In our gallery, we have a wide range of products, including hair oils, creams and makeups.</p>
+					</div>
+					<div class="col-md-4">
+						<p>If you wake up every morning excited to do your makeup, wanna get convenience when shopping, value quality over quantity, then Fancy Beauty Shop will offer you all that and also enjoy top notch customer service. Additionally, we are selling products of world famous brands</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- .fullwidth-block.information-section --> {% endcomment %}
+	</main>
+
+<script>
+var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+slideshows.forEach(initSlideShow);
+
+function initSlideShow(slideshow) {
+
+	var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`);
+
+	var index = 0, time = 5000;
+	slides[index].classList.add('active');
+
+	setInterval( () => {
+		slides[index].classList.remove('active');
+		
+		index++;
+		if (index === slides.length) index = 0;
+
+		slides[index].classList.add('active');
+
+	}, time);
+}
+</script>
+
+{% endblock %}
+
+

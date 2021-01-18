@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<main class="main-content">
+		<div class="page">
+			<div class="container">
+				<p>
+					CALL US NOW OR WHATSAPP ON 0790593729, 0739146178 <br> VISIT US <br>We are located at Floor 2 of Mitsumi plaza, along Moi Drive in Umoja, Nairobi.
+				</p>
+				<hr>
+				
+				<div class="row">	
+					<div class="col-md-6 col-md-offset-1">
+						<div class="map-container">
+							<div class="address-info">
+								<address>
+									<div id="map"></div>
+									<script>	// Initialize and add the map
+										function initMap() {
+											// The location of Uluru
+											var moidrive = {lat: -1.279934, lng: 36.895985};
+											// The map, centered at Uluru
+											var map = new google.maps.Map(
+												document.getElementById('map'), {zoom: 4, center: moidrive});
+											// The marker, positioned at Uluru
+											var marker = new google.maps.Marker({position: moidrive, map: map});
+										}
+										</script>
+										<!--Load the API from the specified URL
+										* The async attribute allows the browser to render the page while the API loads
+										* The key parameter will contain your own API key (which is not needed for this tutorial)
+										* The callback parameter executes the initMap() function
+										-->
+										<script async defer
+										src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4OAP7Ub3DRt3L_ImH625vjtpinmUFFb0&callback=initMap">
+									</script>
+
+									<!-- <img src="images/icon-map-small.png" class="icon"> -->
+									
+								</address>
+								
+						</div>
+						<div class="contact-info">
+							<p><strong>Fancy Beauty Shop</strong> Moi Drive, Nairobi</p>
+							<p>
+								<a href="mailto:contact@companyname.com" class="mail" style="color: blue;"><img src="{% static 'images/icon-envelope-small.png' %}" class="icon" >contact@companyname.com</a>
+								<a href="tel:(254)790593729" class="phone" style="color: blue;"><img src="{% static 'images/icon-phone-small.png' %}" class="icon">(254)790593729</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<p>Feel free to drop your message to our mail:</p>
+					<div class="col-md-5">
+						<form action="#" class="contact-form">
+							<input type="text" id="name" placeholder="Name...">
+							<input type="text" id="email" placeholder="Email...">
+							<textarea name="" id="message" placeholder="Message..."></textarea>
+							<div class="text-right">
+								<button class="button large" type="submit">Send Message</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock content %}
